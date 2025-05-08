@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda da Igreja</title>
+    
+    <!-- CSS FullCalendar -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    
+    <style>
+        body {
+            margin: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        #calendar {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="calendar"></div>
+    <!-- Scripts FullCalendar -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/pt-br.js'></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,listWeek'
+                },
+                locale: 'pt-br',
+                buttonText: {
+                    today: 'Hoje',
+                    month: 'Mês',
+                    week: 'Semana',
+                    list: 'Lista'
+                },
+                events: [
+                    {
+                        title: 'Ensaio - Periodo de Louvor',
+                        start: new Date("2025-05-9 19:00"),
+                        color: '#0d1017'
+                    },
+                    {
+                        title: 'Dia das Mães',
+                        start: new Date('2025-05-11 19:00'),
+                        color: '#378006'
+                    },
+                    {
+                        title: 'Terça Feira Profética',
+                        start: new Date('2025-05-13 19:40'),
+                        color: '#378006'
+                    }
+                ]
+            });
+            
+            calendar.render();
+        });
+    </script>
+</body>
+</html>
